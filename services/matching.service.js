@@ -9,6 +9,7 @@ export async function searchMatchingReports(input) {
   if (input.category) filter.category = input.category;
   if (input.broadLocation) filter.broadLocation = { $regex: input.broadLocation.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), $options: "i" };
   if (input.afterDate || input.beforeDate) filter.eventDate = { ...(input.afterDate && { $gte: input.afterDate }), ...(input.beforeDate && { $lte: input.beforeDate }) };
+
   let candidates;
   if (process.env.VECTOR_SEARCH_ENABLED === "true") {
     try {

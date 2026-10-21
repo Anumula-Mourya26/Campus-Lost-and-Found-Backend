@@ -5,7 +5,7 @@
 This backend helps campus members report lost/found belongings, find possible matches, submit claims and ask questions about the approved recovery process. AI can suggest possible matches and answer policy questions, but it never decides ownership.
 
 The code follows a familiar Express/Mongoose teaching pattern: `server.js`, routers, models, middleware and small service files. The project is separated into folders so each part has one clear responsibility. See `docs/LEARNER_GUIDE.md` before changing code.
-
+ 
 ## Features
 
 - Register/login and password hashing.

@@ -21,6 +21,7 @@ export async function retrievePolicyChunks(query, limit = 5) {
   return chunks;
 }
 export async function answerPolicyQuestion(question) {
+
   const chunks = await retrievePolicyChunks(question);
   if (!chunks.length || (chunks[0].score !== undefined && chunks[0].score < 0.2)) {
     return { answer: "I could not find this detail in the approved campus policy data. Please contact the campus lost-and-found desk.", sources: [], grounded: false };

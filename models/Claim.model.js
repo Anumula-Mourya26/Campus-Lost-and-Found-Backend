@@ -2,7 +2,7 @@ import { Schema, model } from "mongoose";
 
 const claimSchema = new Schema({
   report: { type: Schema.Types.ObjectId, ref: "Report", required: true, index: true },
-  claimant: { type: Schema.Types.ObjectId, ref: "User", required: true, index: true },
+  claimant:  { type: Schema.Types.ObjectId, ref: "User", required: true, index: true },
   privateEvidence: { type: String, required: true, trim: true, maxlength: 2000, select: false },
   distinguishingDetails: { type: String, trim: true, maxlength: 1000, select: false },
   status: { type: String, enum: ["PENDING", "APPROVED", "REJECTED", "HANDED_OVER", "CANCELLED"], default: "PENDING", index: true },

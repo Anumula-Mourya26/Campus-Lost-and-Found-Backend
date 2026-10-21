@@ -5,6 +5,7 @@ export async function chatWithModel(messages, options = {}) {
     body: JSON.stringify({ model: process.env.OLLAMA_CHAT_MODEL || "llama3.1:8b", messages, stream: false, ...options }),
     signal: AbortSignal.timeout(Number(process.env.OLLAMA_TIMEOUT_MS || 60000))
   });
+  
   if (!response.ok) throw new Error(`LLM service returned ${response.status}. Check Ollama and the configured model.`);
   const data = await response.json();
   return data.message || { role: "assistant", content: "I could not generate an answer." };
